@@ -18,7 +18,14 @@ class Scraper
     # doc.css('.student-card').css('.student-location').text
 
     students = []
-    binding.pry
+    doc.css.('.student.card').each do |student_card|
+      student = {}
+      student[:profile_url] = student_card.css('a').attr('href').value
+      student[:name] = student_card.css('.student-name').text
+      student[:location] = student_card.css('.student-location').text
+      students << student
+    end
+    students
   end
 
   def self.scrape_profile_page(profile_url)
