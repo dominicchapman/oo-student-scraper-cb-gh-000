@@ -23,7 +23,6 @@ class Scraper
         students << { name: name, location: location, profile_url: profile_url }
       end
     end
-    binding.pry
     students
   end
 
