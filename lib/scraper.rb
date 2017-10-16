@@ -41,7 +41,7 @@ class Scraper
         student[:linkedin] = prof_link
       elsif prof_link.include?('github')
         student[:github] = prof_link
-      elsif prof_link.include?('blog')
+      else
         student[:blog] = prof_link
       end
     end
