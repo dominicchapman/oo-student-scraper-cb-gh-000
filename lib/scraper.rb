@@ -33,7 +33,23 @@ class Scraper
 
 
     student = {}
-    binding.pry
+    doc.css('.social-icon-container a').each do |link|
+      prof_link = link.attr('href')
+      if prof_link.include?('twitter')
+        student[:twitter] = prof_link
+      elsif prof_link.include?('linkedin')
+        student[:linkedin] = prof_link
+      elsif prof_link.include?('github')
+        student[:github] = prof_link
+      elsif prof_link.include?('blog')
+        student[:blog] = prof_link
+      end
+    end
+
+    student[:profile_quote] = profile.css(".profile-quote").text() if profile.css(".profile-quote")
+    student[:bio] = profile.css("div.bio-content.content-holder div.description-holder p").text if profile.css("div.bio-content.content-holder div.description-holder p")
+
+    student
 
   end
 
