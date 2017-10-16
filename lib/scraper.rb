@@ -9,10 +9,10 @@ class Scraper
     # doc.css('.student-card a').attr('href').value
 
     # :name
-    # doc.css('.student-card').css('.student-name').text
+    # doc.css('.student-card a').css('.student-name').text
 
     # :location
-    # doc.css('.student-card').css('.student-location').text
+    # doc.css('.student-card a').css('.student-location').text
 
     students = []
     doc.css('.roster-cards-container').each do |student_card|
@@ -23,6 +23,7 @@ class Scraper
         students << { name: name, location: location, profile_url: profile_url }
       end
     end
+    binding.pry
     students
   end
 
