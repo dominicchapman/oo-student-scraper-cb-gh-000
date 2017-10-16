@@ -46,7 +46,7 @@ class Scraper
       end
     end
 
-    student[:profile_quote] = doc.css('.profile-quote').text if doc.css(''.profile-quote')
+    student[:profile_quote] = doc.css('.profile-quote').text if doc.css('.profile-quote')
     student[:bio] = doc.css('.description-holder p').text if doc.css('.description-holder p')
 
     student
